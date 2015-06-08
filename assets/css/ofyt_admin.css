@@ -1,0 +1,76 @@
+.postbox, .postbox div{
+    box-sizing: border-box;
+}
+
+.ofyt_form_item{
+    width: 100%;
+    clear: both;
+    padding:5px;
+}
+
+.ofyt_label{
+    width: 100%;
+    font-weight: bold;
+    color:#5C5C5C;
+}
+
+.ofyt_input_holder{
+    width: 100%;
+}
+
+.ofyt_input_item{
+    width:100%;
+    padding: 5px;
+}
+
+.panel_closed{
+    display:none
+}
+
+.inside.ofyt_isntagram_settings_toggel {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    cursor: pointer;
+    height: 40px;
+    margin-top: -17px;
+    line-height: 37px;
+}
+
+.inside.ofyt_isntagram_settings_toggel:hover {
+    background-color: #EEEEEE;
+}
+
+/* ENTRY ITEMS */
+.ofty_entries{
+    float: left;
+}
+.ofyt_item_holder{
+    margin:10px;
+    float: left;
+    display: table;
+    border: 1px solid #e5e5e5;
+    padding:2px;
+    position:relative
+}
+input.button.ofyt_greenbtn {
+    background: rgb(158, 192, 56);
+    color: #FFF;
+    font-weight: bold;
+}
+
+input.button.ofyt_redbtn {
+    background: rgb(181, 0, 0);
+    color: #FFF;
+    font-weight: bold;
+}
+
+.ofyt_item_holder>.media_type {
+    position: absolute;
+    right: 5px;
+    top: 126px;
+    width: 34px;
+}
+
+.ofyt_item_holder>.media_type img {
+    width: 100%;
+}
