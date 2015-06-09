@@ -1,10 +1,26 @@
 <?php
 
+/*
+*  ofyt_FRAMERENAME_dashboard
+*
+*  Dashboard Controller Class. Manages the views and models...
+*
+*  Example: <?php $ofyt_FRAMERENAME_dashboard = new ofyt_FRAMERENAME_dashboard(); ?>
+*
+*  @type	function
+*  @date	09/06/15
+*  @since	1.0.1
+*
+*  @param	N/A
+*  @return	(object)
+*/
+
 class ofyt_FRAMERENAME_dashboard{
 
     // Variables
-    var $view = 'dashboard', $data = array();
+    var $view = 'dashboard';
     var $dash_title = "Dashboard";
+    var $data = array();
 
     /*
 	*  __construct
@@ -12,7 +28,7 @@ class ofyt_FRAMERENAME_dashboard{
 	*  Initialize filters, action, variables and includes
 	*
 	*  @type	function
-	*  @date	13/05/15
+	*  @date	09/06/15
 	*  @since	1.0.1
 	*
 	*  @param	n/a
@@ -34,7 +50,7 @@ class ofyt_FRAMERENAME_dashboard{
 	*  This function will add the Events menu item to the WP admin
 	*
 	*  @type	action (admin_menu)
-	*  @date	13/05/15
+	*  @date	09/06/15
 	*  @since	1.0.1
 	*
 	*  @param	n/a
@@ -59,7 +75,7 @@ class ofyt_FRAMERENAME_dashboard{
 	*  Load the page view html
 	*
 	*  @type	function
-	*  @date	14/05/15
+	*  @date	09/06/15
 	*  @since	1.0.1
 	*
 	*  @param	n/a
@@ -78,7 +94,7 @@ class ofyt_FRAMERENAME_dashboard{
 	*  Load the data for the view
 	*
 	*  @type	function
-	*  @date	14/05/15
+	*  @date	09/06/15
 	*  @since	1.0.1
 	*
 	*  @param	n/a
@@ -108,7 +124,7 @@ class ofyt_FRAMERENAME_dashboard{
 	*  This function enques the admin styles and scripts
 	*
 	*  @type	action (admin_menu)
-	*  @date	13/05/15
+	*  @date	09/06/15
 	*  @since	1.0.1
 	*
 	*  @param	n/a
@@ -134,10 +150,10 @@ class ofyt_FRAMERENAME_dashboard{
     /*
     *  admin_setup_ajax
     *
-    *  This function sets up the ajax actions for wordpress
+    *  This function sets up the ajax actions for WordPress
     *
     *  @type	function
-    *  @date	15/05/15
+    *  @date	09/06/15
     *  @since	1.0.1
     *
     *  @param	n/a
@@ -156,7 +172,7 @@ class ofyt_FRAMERENAME_dashboard{
     *  This function is the ajax call back to the ofyt ajax template
     *
     *  @type	function
-    *  @date	15/05/15
+    *  @date	09/06/15
     *  @since	1.0.1
     *
     *  @param	n/a
@@ -181,4 +197,5 @@ class ofyt_FRAMERENAME_dashboard{
 
 }
 
+// Init the class
 new ofyt_FRAMERENAME_dashboard();

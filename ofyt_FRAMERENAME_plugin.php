@@ -12,9 +12,11 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Register the activation and deactivation hooks
 register_activation_hook( __FILE__, array( 'ofyt_FRAMERENAME_install', 'install' ) );
 register_deactivation_hook( __FILE__, array( 'ofyt_FRAMERENAME_install', 'uninstall' ) );
 
+// Check if the root class exists
 if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
 
     class ofyt_FRAMERENAME_plugin{
@@ -26,6 +28,19 @@ if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
         function __construct(){
             // Do nothings
         }
+
+        /*
+        *  initialize
+        *
+        *  The main activation function that sets all the root options for the plugin
+        *
+        *  @type	function
+        *  @date	09/06/15
+        *  @since	1.0.1
+        *
+        *  @param	N/A
+        *  @return	(object)
+        */
 
         function initialize(){
 
@@ -47,7 +62,7 @@ if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
                 'admin_visible'		=> true
             );
 
-            // Include Helper Class
+            // Include API Helper classes
             include_once('api/helper.class.php');
             include_once('api/ofyt_db_controller.class.php');
 
@@ -59,10 +74,21 @@ if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
             // actions
             add_action('init',  array($this, 'wp_init'), 10, 1 );
 
-
-
         }
 
+
+        /*
+        *  wp_init
+        *
+        *  Wordpress init function, when wordpress is loaded, this function is called and registers all the js and css
+        *
+        *  @type	function
+        *  @date	09/06/15
+        *  @since	1.0.1
+        *
+        *  @param	N/A
+        *  @return	(object)
+        */
         function wp_init(){
 
             // Register JS Scripts
@@ -128,7 +154,7 @@ if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
     *  Example: <?php $ofytpluginframe = new ofytpluginframe(); ?>
     *
     *  @type	function
-    *  @date	12/05/15
+    *  @date	09/06/15
     *  @since	1.0.1
     *
     *  @param	N/A
@@ -154,7 +180,7 @@ if( ! class_exists('ofyt_FRAMERENAME_plugin') ) :
 endif;
 
 /*
-*  ofyt_frame_install
+*  ofyt_ofytpluginframe_install
 *
 *  This is the main class that handles the install and un-install of the plugin, creating and removing tables
 *
@@ -188,32 +214,15 @@ class ofyt_ofytpluginframe_install{
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
         // Create entries table
-       /* $entries_table = $wpdb->prefix."instagram_entries";
+       /* $tablename = $wpdb->prefix."tablename";
         $sql_entries_table = "
-            CREATE TABLE IF NOT EXISTS  $entries_table (
-              entry_id INT(11) NOT NULL AUTO_INCREMENT,
-              entry_uri VARCHAR(255) NOT NULL,
-              entry_thumb_uri VARCHAR(255) NOT NULL,
-              entry_media_id VARCHAR(255) NOT NULL,
-              entry_status TINYINT(1) DEFAULT 0 NOT NULL,
-              entry_type VARCHAR(255) NOT NULL,
-              date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-              last_modified datetime DEFAULT NULL,
-              deleted TINYINT(1) DEFAULT 0 NOT NULL,
-              UNIQUE KEY entry_id (entry_id),
-              UNIQUE KEY entry_media_id (entry_media_id)
+            CREATE TABLE IF NOT EXISTS  $tablename (
+              table_id INT(11) NOT NULL AUTO_INCREMENT,
+              UNIQUE KEY entry_id (entry_id)
             ) $charset_collate;
-            CREATE TRIGGER $entries_table
-            BEFORE UPDATE ON $entries_table
-            FOR EACH ROW SET NEW.last_modified = NOW();
         ";
         dbDelta($sql_entries_table);*/
 
-        /*$sql_create = "
-            CREATE TRIGGER `". $wpdb->prefix ."hplugin_root`
-            BEFORE UPDATE ON `". $wpdb->prefix ."hplugin_root`
-            FOR EACH ROW SET NEW.last_modified = NOW();
-        ";*/
 
     }
 
